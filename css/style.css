@@ -12,6 +12,7 @@ h1 {
 .column {
     width: 18%;
     padding: 25px 0px;
+    background-color:lightblue;
 }
 
 #images img {
