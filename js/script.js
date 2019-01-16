@@ -11,14 +11,18 @@ var songs = ["Havana",
 
 var images_urls=["http://d1lofqbqbj927c.cloudfront.net/exa/2018/01/23091006/290241501786508-300x300.jpg",
     "https://i.ytimg.com/vi/aZZvTzdTurA/maxresdefault.jpg",
-    ""];
+    "", "https://i.ytimg.com/vi/3o0r584PYck/maxresdefault.jpg", "https://i.ytimg.com/vi/sdDiHZiBtpE/maxresdefault.jpg"];
 var artists=["Camila Cabello", 
     "Lyn Inaizumi", 
     "Getter Jaani", 
     "Kero Kero Bonito", 
     "Lyn Inaizumi"];
-var lengths=[];
-var links=[];
+var lengths=["219", "235", "197", "149", "310"];
+var links=["https://www.youtube.com/watch?v=HCjNJDNzw8Y", 
+    "https://www.youtube.com/watch?v=Ax9V_JtZO6A",
+    "https://www.youtube.com/watch?v=hjGZLnja1o8",
+    "https://www.youtube.com/watch?v=rY-FJvRqK0E",
+    "https://www.youtube.com/watch?v=jaIo82uT0qs"];
 
 
 
@@ -34,24 +38,26 @@ function displaySongInfo(){
     });
     
     artists.forEach(function(people) {
-        $("#artist").append(people);
+        $("#artists").append("<p>" + people + "</p>");
     });
     
     lengths.forEach(function(secs){
-        $("#length").append(secs)
+        $("#lengths").append("<p>" + secs + "</p>")
     });
     
     links.forEach(function(links) {
-        var url = `<a href ${links} >`;
-        $("#link").append(url);
+        var url = `<a href="${links}"> Check it out!</a>`;
+        $("#links").append(url);
     })
 }
 
 function emptySongInfo(){
     $("#songs").empty();
     // Use jQuery to empty all of the remaining divs
-
-
+    $("#images").empty();
+    $("#artists").empty();
+    $("#lengths").empty();
+    $("#links").empty();
 }
 
 
@@ -59,8 +65,9 @@ function addSongInfo(){
     var songName = $("#song").val();
     songs.push(songName);
     // BELOW write the code to add new items to each of the other arrays
-
-
+    var img = $("#artist").val();
+    images_urls.push(img);
+    
 }
 
 $("#add").click(function() {
