@@ -65,9 +65,27 @@ function addSongInfo(){
     var songName = $("#song").val();
     songs.push(songName);
     // BELOW write the code to add new items to each of the other arrays
-    var img = $("#artist").val();
+    var img = $("#image").val();
     images_urls.push(img);
-    
+    var artist = $("#artist").val();
+    artists.push(artist);
+    var l = $("#length").val();
+    lengths.push(l);
+    var link = $("#link").val();
+    links.push(link);
+}
+
+function deleteSongs(){
+    var songName = $("#song").val();
+    songs.pop();
+    var img = $("#image").val();
+    images_urls.pop();
+    var artist = $("#artist").val();
+    artists.pop();
+    var l = $("#length").val();
+    lengths.pop();
+    var link = $("#link").val();
+    links.pop();
 }
 
 $("#add").click(function() {
@@ -76,4 +94,9 @@ $("#add").click(function() {
     displaySongInfo();
 });
 
+$("#del").click(function(){
+    emptySongInfo();
+    deleteSongs();
+    displaySongInfo();
+});
 displaySongInfo();
